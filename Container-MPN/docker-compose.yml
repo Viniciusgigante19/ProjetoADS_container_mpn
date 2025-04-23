@@ -1,0 +1,35 @@
+version: '3.8'
+
+services:
+
+  node_app:
+    build: ./app      
+    ports:
+      - "3000:3000"
+    environment:
+      NODE_ENV: production
+      MONGO_URL: "mongodb://admin:senha@mongodb:27017"
+      POSTGRES_URL: "postgres://admin:senha@postgres:5432"
+    depends_on:
+      - mongodb
+      - postgres
+
+  mongodb:
+    image: mongo:6.0
+    environment:
+      MONGO_INITDB_ROOT_USERNAME: admin
+      MONGO_INITDB_ROOT_PASSWORD: senha
+    volumes:
+      - mongo_data:/data/db
+  postgres:
+    image: postgres:15
+    environment:
+      POSTGRES_USER: HOST_NAME
+      POSTGRES_PASSWORD: POSTGRES_PASSWORD
+      POSTGRES_DB: SCHEMA
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+
+volumes:
+  mongo_data:
+  postgres_data:
