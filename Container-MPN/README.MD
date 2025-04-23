@@ -41,6 +41,8 @@ CONTAINER-MPN ------I
 # 2 - Clone o repositório   e use o comando a seguir no terminal do Git Bash:
 
     ``Bash
-        Git Clone 
+        Git Clone https://github.com/Viniciusgigante19/ProjetoADS_container_mpn
+# 3 - navegue até a o local do Docker-compose.yml , use o comando CD <local_do_arquivo> 
+      e por fim use o comando para executa-lo docker-compose up
 
     
